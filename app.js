@@ -14,8 +14,6 @@ app.use(cookieParser());
 const authRoute = require('./routes/authRoute');
 app.use('/', authRoute);
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
+
 
 module.exports = app;

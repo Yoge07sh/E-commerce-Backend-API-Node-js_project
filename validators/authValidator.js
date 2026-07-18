@@ -1,18 +1,19 @@
 const { body } = require('express-validator');
 
+//register validator
 const registerValidation = [
     body('firstName')
         .trim()
-        .notEmpty
+        .notEmpty()
         .withMessage('first name is required'),
 
 
     body('lastName')
         .trim()
-        .notEmpty
+        .notEmpty()
         .withMessage('last name is required'),
 
-    body.apply('email')
+    body('email')
         .trim()
         .notEmpty()
         .withMessage('email is required')
@@ -25,9 +26,26 @@ const registerValidation = [
         .withMessage('password is required')
         .isLength({ min: 5 })
         .withMessage('password must have 5 characters')
-]
+];
+
+//login validator
+const loginValidation = [
+    body('email')
+        .trim()
+        .notEmpty()
+        .withMessage('email is required')
+        .isEmail()
+        .withMessage('enter a valid email'),
+
+    body('password')
+        .trim()
+        .notEmpty()
+        .withMessage('password is required')
+
+];
 
 module.exports = {
-    registerValidation
+    registerValidation,
+    loginValidation
 
 };
