@@ -12,9 +12,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const authRoute = require('./routes/authRoute');
+const adminRoute = require('./routes/adminRoute');
 const categoryRoute = require('./routes/categoryRoute');
+const productRoute = require('./routes/productRoute');
 app.use(authRoute);
+app.use('/admin', adminRoute);
 app.use(categoryRoute);
+app.use('/admin', categoryRoute);
+app.use('/admin',productRoute);
 
 
 

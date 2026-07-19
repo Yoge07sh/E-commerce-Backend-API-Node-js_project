@@ -4,22 +4,20 @@ const getCategories = async (req, res) => {
     try {
         const categories = await Category.find();
 
-        res.render("categories/category", {
-            categories
-        });
+        res.render("admin/categories/category",{categories});
     } catch (err) {
         res.status(500).send(err.message);
     }
 }
 
 const showCategoryPage = (req, res) => {
-    res.render('categories/add');
+    res.render('admin/categories/add');
 }
 const addCategory = async (req, res) => {
     try {
         const category = new Category(req.body);
         await category.save();
-        res.redirect('/categories');
+        res.redirect('admin/categories');
     } catch (err) {
         res.status(500).send(err.message);
     }
