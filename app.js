@@ -12,7 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const authRoute = require('./routes/authRoute');
-app.use('/', authRoute);
+const categoryRoute = require('./routes/categoryRoute');
+app.use(authRoute);
+app.use(categoryRoute);
 
 
 

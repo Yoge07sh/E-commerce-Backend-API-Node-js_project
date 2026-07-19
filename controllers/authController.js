@@ -105,9 +105,10 @@ const logout = (req, res) => {
     res.redirect('login')
 }
 
-const showProfile =  (req, res) => {
+const showProfile = async (req, res) => {
+    const user = await User.findById(req.user.id)
     res.render('profile', {
-        user: req.user
+        user
     });
 }
 
