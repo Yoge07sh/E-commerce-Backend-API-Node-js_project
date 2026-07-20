@@ -15,11 +15,14 @@ const authRoute = require('./routes/authRoute');
 const adminRoute = require('./routes/adminRoute');
 const categoryRoute = require('./routes/categoryRoute');
 const productRoute = require('./routes/productRoute');
+const userRoute = express.Router();
 app.use(authRoute);
 app.use('/admin', adminRoute);
 app.use(categoryRoute);
 app.use('/admin', categoryRoute);
+app.use(productRoute);
 app.use('/admin',productRoute);
+app.use(userRoute);
 
 
 
